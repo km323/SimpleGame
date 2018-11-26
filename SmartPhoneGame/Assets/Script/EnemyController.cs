@@ -12,6 +12,9 @@ public class EnemyController : MonoBehaviour {
     [SerializeField]
     private float rotateSpeed;
 
+    [SerializeField]
+    private LineRenderer lineRenderer;
+
     private const float angleOffset = 90;
 
     private Vector3 frontDirection;
@@ -33,6 +36,7 @@ public class EnemyController : MonoBehaviour {
 
         CalcFrontDirection();
         Rotate();
+        AimLineRenderer();
     }
 
     void Rotate()
@@ -51,6 +55,7 @@ public class EnemyController : MonoBehaviour {
 
     IEnumerator Dead()
     {
+        gameObject.SendMessage("StopShoting");
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<CircleCollider2D>().enabled = false;
 
@@ -58,7 +63,7 @@ public class EnemyController : MonoBehaviour {
         particleSystem.Play();
 
         yield return new WaitForSeconds(particleSystem.main.duration);
-
+        
         Destroy(gameObject);
     }
 
@@ -66,5 +71,11 @@ public class EnemyController : MonoBehaviour {
     {
         if(collision.tag == "Player")
             StartCoroutine(Dead());
+    }
+
+    private void AimLineRenderer()
+    {
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, front.position);
     }
 }

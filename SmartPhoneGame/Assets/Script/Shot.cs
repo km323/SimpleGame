@@ -32,19 +32,24 @@ public class Shot : MonoBehaviour {
 		
 	}
 
+    private void StopShoting()
+    {
+        StopAllCoroutines();
+    }
+
     IEnumerator ShotBullet()
     {
         while (gameObject.activeSelf)
         {
-            GameObject shot = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            Bullet bullet = shot.GetComponent<Bullet>();
-            bullet.Init(enemyController.FrontDirection, shotSpeed);
-            yield return new WaitForSeconds(shotInterval / 3);
-
             spriteRenderer.sprite = normalSprite;
             yield return new WaitForSeconds(shotInterval / 3);
 
             spriteRenderer.sprite = attackSprite;
+            yield return new WaitForSeconds(shotInterval / 3);
+
+            GameObject shot = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Bullet bullet = shot.GetComponent<Bullet>();
+            bullet.Init(enemyController.FrontDirection, shotSpeed);
             yield return new WaitForSeconds(shotInterval / 3);
         }
     }
