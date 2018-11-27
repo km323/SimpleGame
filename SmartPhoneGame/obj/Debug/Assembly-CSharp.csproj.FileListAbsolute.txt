@@ -226,7 +226,6 @@ D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.ProfilerModule.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.ScreenCaptureModule.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.SharedInternalsModule.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.SpatialTracking.dll
-D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.SpatialTrackingModule.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.SpriteMaskModule.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.SpriteShapeModule.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.StandardEvents.dll
@@ -305,7 +304,6 @@ D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.Physics2DModule.xml
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.ProfilerModule.xml
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.ScreenCaptureModule.xml
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.SharedInternalsModule.xml
-D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.SpatialTrackingModule.xml
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.SpriteMaskModule.xml
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.SpriteShapeModule.xml
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.StreamingModule.xml

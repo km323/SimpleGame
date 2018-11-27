@@ -18,13 +18,18 @@ public class Player : MonoBehaviour {
     [SerializeField]
     CircleCollider2D collider;
 
+    [SerializeField]
+    private SelfController selfController;
+
     private const float angleOffset = 90;
 
     private Vector3 frontDirection;
     private Vector3 targetPosition;
     private bool canInput;
+
     // Use this for initialization
     void Start () {
+
         canInput = true;
         capsuleCollider.enabled = false;
         targetPosition = transform.position;
@@ -35,11 +40,6 @@ public class Player : MonoBehaviour {
 	void Update () {
         InputHandle();
         CalcFrontDirection();
-    }
-
-    private void FixedUpdate()
-    {
-        //transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.fixedDeltaTime);
     }
 
     void CalcFrontDirection()
@@ -54,7 +54,6 @@ public class Player : MonoBehaviour {
         float x = Mathf.Cos(angle);
         float y = Mathf.Sin(angle);
 
-        //targetPosition = transform.position + new Vector3(x, y, 0) * moveDistance;
         transform.position += new Vector3(x, y, 0) * moveDistance;
     }
     void InputHandle()
@@ -68,15 +67,22 @@ public class Player : MonoBehaviour {
         input.x = Input.GetAxis("Horizontal");
         input.y = Input.GetAxis("Vertical");
 
-        if (input.magnitude <= 0.1f)
-            return;
         Rotation(input);
 
+        if (Input.GetKeyUp(KeyCode.JoystickButton5))
+            selfController.ClearRecord();
+
+        if (input.magnitude <= 0.1f)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.JoystickButton5))
+            selfController.Create();
+        if (Input.GetKey(KeyCode.JoystickButton5))
+            selfController.Record();
+
         if (Input.GetKeyDown(KeyCode.JoystickButton0))
-        {
-            capsuleCollider.enabled = true;
-            CalcTargetPosition();
-        }
+            Wrap();
+
         transform.position += new Vector3(input.x * moveSpeed * Time.fixedDeltaTime, input.y * moveSpeed * Time.fixedDeltaTime,0);
     }
 
@@ -85,6 +91,11 @@ public class Player : MonoBehaviour {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion targetAngle = Quaternion.Euler(new Vector3(0, 0, angle - angleOffset));
         transform.rotation = targetAngle;
+    }
+    void Wrap()
+    {
+        capsuleCollider.enabled = true;
+        CalcTargetPosition();
     }
 
     IEnumerator Dead()
@@ -113,8 +124,10 @@ public class Player : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Background")
         {
-            targetPosition = collision.contacts[0].normal * collider.radius;
-            targetPosition += transform.position;
+            //FIXME:斜めの当たり判定
+
+            targetPosition = collision.contacts[0].normal * -collision.contacts[0].separation;
+            transform.position += targetPosition;
         }
     }
 }
