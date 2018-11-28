@@ -16,16 +16,22 @@ public class Player : MonoBehaviour {
     private CapsuleCollider2D capsuleCollider;
 
     [SerializeField]
-    CircleCollider2D collider;
+    CircleCollider2D circleCollider;
 
     [SerializeField]
     private SelfController selfController;
+
+//仮
+    [SerializeField]
+    private GameObject selfPrefab;
 
     private const float angleOffset = 90;
 
     private Vector3 frontDirection;
     private Vector3 targetPosition;
     private bool canInput;
+
+    private Vector3 exchangePos;
 
     // Use this for initialization
     void Start () {
@@ -62,22 +68,38 @@ public class Player : MonoBehaviour {
             return;
 
         capsuleCollider.enabled = false;
+        circleCollider.enabled = true;
 
         Vector2 input;
         input.x = Input.GetAxis("Horizontal");
         input.y = Input.GetAxis("Vertical");
 
-        Rotation(input);
+        #region 仮
+        if (Input.GetKeyDown(KeyCode.JoystickButton5))
+        {
+            Instantiate(selfPrefab, transform.position, Quaternion.identity);
+            exchangePos = transform.position;
+        }
 
         if (Input.GetKeyUp(KeyCode.JoystickButton5))
-            selfController.ClearRecord();
+        {
+            transform.position = exchangePos;
+            Destroy(GameObject.FindWithTag("Self"));
+        }
+        #endregion
+
+        if (Input.GetKeyDown(KeyCode.JoystickButton4))
+            selfController.Create();
+
+        if (Input.GetKeyUp(KeyCode.JoystickButton4))
+            selfController.ClearRecord();  
 
         if (input.magnitude <= 0.1f)
             return;
 
-        if (Input.GetKeyDown(KeyCode.JoystickButton5))
-            selfController.Create();
-        if (Input.GetKey(KeyCode.JoystickButton5))
+        Rotation(input);
+
+        if (Input.GetKey(KeyCode.JoystickButton4))
             selfController.Record();
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0))
@@ -94,6 +116,7 @@ public class Player : MonoBehaviour {
     }
     void Wrap()
     {
+        circleCollider.enabled = false;
         capsuleCollider.enabled = true;
         CalcTargetPosition();
     }
@@ -129,5 +152,10 @@ public class Player : MonoBehaviour {
             targetPosition = collision.contacts[0].normal * -collision.contacts[0].separation;
             transform.position += targetPosition;
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //if (circleCollider.enabled && collision.tag == "Enemy")
+        //    StartCoroutine(Dead());
     }
 }

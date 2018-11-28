@@ -28,6 +28,7 @@ public class SelfController : MonoBehaviour {
     {
         self = Instantiate(selfPrefab, transform.position, Quaternion.identity);
         self.GetComponent<SelfMovement>().Init(waitInterval, selfRecord);
+        selfRecord.currentPos = transform.position;
     }
     public void Record()
     {
@@ -46,7 +47,6 @@ public class SelfController : MonoBehaviour {
 
     private void ExchangePos()
     {
-        if (selfRecord.currentPos != Vector3.zero)
-            transform.position = selfRecord.currentPos;
+        transform.position = selfRecord.currentPos;
     }
 }

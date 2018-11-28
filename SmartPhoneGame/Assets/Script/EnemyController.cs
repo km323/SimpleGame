@@ -15,6 +15,9 @@ public class EnemyController : MonoBehaviour {
     [SerializeField]
     private LineRenderer lineRenderer;
 
+    [SerializeField]
+    private Transform line;
+
     private const float angleOffset = 90;
 
     private Vector3 frontDirection;
@@ -76,6 +79,6 @@ public class EnemyController : MonoBehaviour {
     private void AimLineRenderer()
     {
         lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, front.position);
+        lineRenderer.SetPosition(1, line.position);
     }
 }

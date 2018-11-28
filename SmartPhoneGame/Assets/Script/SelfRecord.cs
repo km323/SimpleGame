@@ -6,7 +6,7 @@ public class SelfRecord{
     private Queue<Vector3> recordedPosition;
     public Queue<Vector3> RecordedPosition { get { return recordedPosition; } }
 
-    public Vector3 currentPos { get; private set; }
+    public Vector3 currentPos { get; set; }
 
     private Queue<Quaternion> recordedRotation;
     public Queue<Quaternion> RecordedRotation { get { return recordedRotation; } }
@@ -15,7 +15,6 @@ public class SelfRecord{
     public SelfRecord () {
         recordedPosition = new Queue<Vector3>();
         recordedRotation = new Queue<Quaternion>();
-        currentPos = Vector3.zero;
 	}
 
     public void Record(Vector3 pos, Quaternion rotation)

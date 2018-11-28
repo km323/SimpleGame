@@ -42,15 +42,15 @@ public class Shot : MonoBehaviour {
         while (gameObject.activeSelf)
         {
             spriteRenderer.sprite = normalSprite;
-            yield return new WaitForSeconds(shotInterval / 3);
+            yield return new WaitForSeconds(shotInterval / 2);
 
             spriteRenderer.sprite = attackSprite;
-            yield return new WaitForSeconds(shotInterval / 3);
+            yield return new WaitForSeconds(shotInterval / 4);
 
             GameObject shot = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             Bullet bullet = shot.GetComponent<Bullet>();
             bullet.Init(enemyController.FrontDirection, shotSpeed);
-            yield return new WaitForSeconds(shotInterval / 3);
+            yield return new WaitForSeconds(shotInterval / 4);
         }
     }
 }

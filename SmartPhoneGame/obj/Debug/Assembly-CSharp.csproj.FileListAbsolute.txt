@@ -178,13 +178,11 @@ D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\Assembly-CSharp.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\Assembly-CSharp.pdb
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\Boo.Lang.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\mscorlib.dll
-D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\OSCsharp.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\System.Core.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\System.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\System.Runtime.Serialization.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\System.Xml.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\System.Xml.Linq.dll
-D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\TUIOsharp.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\Unity.Locator.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\Unity.PackageManagerUI.Editor.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\Unity.TextMeshPro.dll
@@ -346,5 +344,5 @@ D:\SimpleGame\SmartPhoneGame\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.
 D:\SimpleGame\SmartPhoneGame\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\SimpleGame\SmartPhoneGame\obj\Debug\Assembly-CSharp.dll
 D:\SimpleGame\SmartPhoneGame\obj\Debug\Assembly-CSharp.pdb
-D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEditor.UI.dll
-D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEditor.UI.xml
+D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\DOTween.dll
+D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\DOTween.xml
