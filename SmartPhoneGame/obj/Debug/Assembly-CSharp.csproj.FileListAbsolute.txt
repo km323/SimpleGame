@@ -346,3 +346,5 @@ D:\SimpleGame\SmartPhoneGame\obj\Debug\Assembly-CSharp.dll
 D:\SimpleGame\SmartPhoneGame\obj\Debug\Assembly-CSharp.pdb
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\DOTween.dll
 D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\DOTween.xml
+D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.SpatialTrackingModule.dll
+D:\SimpleGame\SmartPhoneGame\Temp\bin\Debug\UnityEngine.SpatialTrackingModule.xml
